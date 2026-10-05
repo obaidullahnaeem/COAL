@@ -1,0 +1,94 @@
+a. Trace the program and find the values of $t0, $t1, $t2, $t3, $t4 and $t5. [4]
+
+Answers:
+$t0 ==  0x10010000 address
+$t2 == 0x10010004 address
+$t4 == 0x10010008 address
+
+$t1 == 18
+$t3 == 7
+$t5 == 4
+
+
+b. Find the values of $t6, $t7, $s0 and $s1. [4]
+$t6 == 126
+$t7 == 31  because lo=Quotient == 31 
+$s0 == 2   because hi=Remainder == 2
+$s1 == 35 
+
+c. Find the values of $s4, $s5 and $s6. Show binary working for one logical operation. [4]
+
+$s4 == 3 
+$s5 == 35 
+$s6 == 32
+
+Working same for all 3 
+   $s1:  0010 0011  (35)
+   $s3:  0000 0011  (3)
+   AND:  0000 0011  (3)
+
+
+d. Find the final values of result, rem and flag. [2]
+result : 31
+rem : 2
+flag : 3 
+
+
+e. Explain the difference between la and lw. [1]
+
+la store the address of that data type for example .data or .word 
+lw stores the word in the desired register you want 
+
+---------------------------------------------------------------
+
+a. Create a mask to check the Write permission. Give the mask in binary, decimal and hexadecimal. [4]
+binary: 00000010
+decimal: 2
+hexadecimal: 0x00000002
+
+b. Which logical instruction should be used to check the Write bit? Explain. [3]
+Answers:
+       Current permission value: 00110111
+                           Mask: 00000010 
+                     And Result: 00000010
+   
+     if result all zero write if OFF
+     if result all one write is ON 
+
+c. Create a mask to turn Print ON without changing the other permissions. [4]
+
+use or gate on print 
+      Current permission value: 00110111
+                       OR Mask: 00010000
+Reason: in OR 11 gives 1 , 01 or 10 also gives 1 and 00 gives 0 , so we need to add 1 in that position.
+
+
+
+d. Write the MIPS instructions to load the permission value, use the mask, perform the logical operation, and store the result. [4]
+permission in $t1
+write in $t2
+and and store in $t3
+-----------------------------------------------------------------
+
+QS 5 
+a. Convert 25 and 258 to binary. [2]
+Answers:
+25 = 11001
+258 = 100000010
+
+
+b. Write 25 as a 32-bit binary value. [2]
+Answers:
+ 0000 0000 0000 0000 0000 0000 0001 1001
+
+c. A .word occupies 4 bytes. If num starts at 0x10010000, find the address of each byte. [4]
+Answers: 
+        as said .word is 4 byte, and its byte assessable memory so if first byte is at 0x10010000, (second)next byte is 0x10010000+1 , (third) byte at 0x10010002 , (fourth) byte at 0x10010003 , hence completing the .word 4 bytes 
+
+
+d. Why is the next .word located 4 bytes later? [2]
+Answers:
+       because .word is 4 bytes and so next .word is after 4 bytes so we add it in the address, suppose start 0x10010000+4=0x10010004 for next .word .
+
+e. Run the program in MARS and record the address and hexadecimal value of num. [2]
+
