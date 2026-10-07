@@ -3,11 +3,11 @@
 
 li $t0, 5
 li $t1, 10
-li $t2, 10
+li $t4 , 0
 
 
 #bne $t0, $t1, different
-beq $t4, $t4 , same 
+bne $t4, $t4 , same 
 
 
 
@@ -24,9 +24,21 @@ j end
 #li $a0, 1
 #syscall
 
-same :
+b same :
 addiu $t4, $t4, 100
 
 end:
 li $v0,10
 syscall
+
+
+#-----------------------------------------------
+# > BLT
+# < BGT
+# >= BGE
+# >=  BLE
+# ==0 BEZ  BRANCH EQUAL TO ZERO
+# != BNEZ 
+# >= BGEZ BRANCH GREATER THAN EQUAL TO 
+# <= BGEZ BRANCH LESS THAN EQUAL TO 
+
